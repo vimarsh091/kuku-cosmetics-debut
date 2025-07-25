@@ -564,26 +564,7 @@
     </main>
 
     <script>
-        // Newsletter form functionality
-        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const emailInput = document.getElementById('emailInput');
-            const submitButton = document.getElementById('submitButton');
-            
-            if (!emailInput.value) return;
-            
-            submitButton.textContent = 'Joining...';
-            submitButton.disabled = true;
-            
-            // Simulate API call
-            setTimeout(() => {
-                alert('Welcome to Kuku Cosmetics! 💄\nYou\'ll be the first to know when we launch.');
-                emailInput.value = '';
-                submitButton.textContent = 'Notify Me';
-                submitButton.disabled = false;
-            }, 1000);
-        });
+
 
         // Generate particle background
         function createParticles() {

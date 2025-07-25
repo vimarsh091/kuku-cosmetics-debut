@@ -171,15 +171,24 @@
         }
 
         .tagline {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.5rem;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 300;
-            animation: fadeInUp 1s ease-out;
-            max-width: 32rem;
-            margin: 0 auto;
-        }
-
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 100;
+    animation: fadeInUp 1s ease-out;
+    max-width: 32rem;
+    font-style: italic;
+    margin: 0 auto;
+}
+.fancy-quote {
+    font-family: 'Adobe Garamond Pro', Garamond, 'EB Garamond', serif;
+    font-size: 1.5em;
+    font-weight: bold;
+    line-height: 0.7;
+    vertical-align: baseline;
+    opacity: 0.5;
+    color: rgba(255, 255, 255, 0.7);
+}
         /* Newsletter Section */
         .newsletter-container {
             display: flex;
@@ -537,8 +546,11 @@
                         <span>Soon</span>
                     </h2>
                     
+                    
                     <p class="tagline">
+                        <span class="fancy-quote">&ldquo;</span> 
                         Natural Beauty. Bold Confidence.
+                        
                     </p>
                 </div>
 

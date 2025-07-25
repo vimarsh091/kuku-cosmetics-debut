@@ -2,41 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Kuku Cosmetics Design System - Luxury Beauty Brand
+All colors MUST be HSL for consistency.
 */
 
 @layer base {
   :root {
+    /* Brand Colors - Luxury Cosmetics Palette */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 320 60% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 320 60% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 320 60% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary: Deep Plum */
+    --primary: 320 60% 25%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary: Soft Pink */
+    --secondary: 350 100% 88%;
+    --secondary-foreground: 320 60% 25%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted: Nude tones */
+    --muted: 25 50% 95%;
+    --muted-foreground: 320 40% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent: Rose Gold */
+    --accent: 15 80% 70%;
+    --accent-foreground: 320 60% 25%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 350 50% 92%;
+    --input: 350 50% 96%;
+    --ring: 15 80% 70%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom Brand Colors */
+    --rose-gold: 15 80% 70%;
+    --soft-pink: 350 100% 88%;
+    --nude: 25 50% 85%;
+    --deep-plum: 320 60% 25%;
+    --pearl-white: 0 0% 98%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--rose-gold)), hsl(var(--soft-pink)));
+    --gradient-secondary: linear-gradient(180deg, hsl(var(--pearl-white)), hsl(var(--nude)));
+    --gradient-accent: linear-gradient(45deg, hsl(var(--soft-pink)), hsl(var(--rose-gold)));
+
+    /* Shadows */
+    --shadow-luxury: 0 20px 40px -10px hsl(var(--deep-plum) / 0.15);
+    --shadow-soft: 0 10px 30px -5px hsl(var(--soft-pink) / 0.2);
+    --shadow-glow: 0 0 40px hsl(var(--rose-gold) / 0.3);
+
+    /* Animations */
+    --transition-luxury: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +126,139 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter;
+  }
+}
+
+@layer components {
+  /* Luxury Button Variants */
+  .btn-luxury {
+    @apply relative overflow-hidden bg-gradient-to-r from-rose-gold to-accent text-primary-foreground font-medium px-8 py-4 rounded-full transition-all duration-500 shadow-soft hover:shadow-glow hover:scale-105;
+  }
+
+  .btn-luxury::before {
+    content: '';
+    @apply absolute inset-0 bg-white opacity-0 transition-opacity duration-300;
+  }
+
+  .btn-luxury:hover::before {
+    @apply opacity-20;
+  }
+
+  /* Animated Text */
+  .text-shimmer {
+    @apply bg-gradient-to-r from-rose-gold via-soft-pink to-accent bg-clip-text text-transparent;
+    background-size: 200% auto;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Floating Animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  /* Fade In Animations */
+  .fade-in-up {
+    animation: fadeInUp 1s ease-out;
+  }
+
+  .fade-in-down {
+    animation: fadeInDown 1s ease-out 0.3s both;
+  }
+
+  .fade-in-left {
+    animation: fadeInLeft 1s ease-out 0.6s both;
+  }
+
+  .fade-in-right {
+    animation: fadeInRight 1s ease-out 0.9s both;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 40px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translate3d(0, -40px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translate3d(-40px, 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translate3d(40px, 0, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /* Particle Background */
+  .particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, hsl(var(--rose-gold)), transparent);
+    border-radius: 50%;
+    animation: particle-float 15s linear infinite;
+  }
+
+  @keyframes particle-float {
+    0% {
+      transform: translateY(100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-10vh) rotate(360deg);
+      opacity: 0;
+    }
   }
 }

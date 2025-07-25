@@ -61,7 +61,30 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Kuku Cosmetics Brand Colors
+				'rose-gold': 'hsl(var(--rose-gold))',
+				'soft-pink': 'hsl(var(--soft-pink))',
+				'nude': 'hsl(var(--nude))',
+				'deep-plum': 'hsl(var(--deep-plum))',
+				'pearl-white': 'hsl(var(--pearl-white))'
+			},
+			fontFamily: {
+				'playfair': ['Playfair Display', 'serif'],
+				'inter': ['Inter', 'sans-serif'],
+			},
+			backgroundImage: {
+				'gradient-primary': 'var(--gradient-primary)',
+				'gradient-secondary': 'var(--gradient-secondary)',
+				'gradient-accent': 'var(--gradient-accent)',
+			},
+			boxShadow: {
+				'luxury': 'var(--shadow-luxury)',
+				'soft': 'var(--shadow-soft)',
+				'glow': 'var(--shadow-glow)',
+			},
+			transitionTimingFunction: {
+				'luxury': 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
